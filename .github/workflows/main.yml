@@ -16,8 +16,8 @@ jobs:
         dir C:\Qt
         dir "C:\Qt\5.15.2\"
         dir "C:\Qt\5.15.2\mingw81_64"
-        dir "C:" /s | findstr /i "qmake.exe"
-        dir "C:" /s | findstr /i "nmake.exe"
+        dir "C:\Qt" /s | findstr /i "qmake.exe"
+        dir "C:\Qt" /s | findstr /i "nmake.exe"
 
     - name: Add Qt to PATH
       run: echo "C:\Qt\5.15.2\mingw81_64\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
