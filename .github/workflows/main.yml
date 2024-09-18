@@ -1,4 +1,4 @@
-name: Build qt-hello-world
+name: Build qt-hello-world with CMake
 
 on:
   #push:
