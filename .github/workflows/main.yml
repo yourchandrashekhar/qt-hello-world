@@ -22,6 +22,8 @@ jobs:
 
     - name: Build Qt project
       run: |
+        cd D:\a\qt-hello-world
+        D:
         C:\Qt\5.15.2\mingw81_64\bin\qmake -project
         C:\Qt\5.15.2\mingw81_64\bin\qmake
         C:\Qt\5.15.2\mingw81_64\bin\nmake
