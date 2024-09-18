@@ -31,4 +31,4 @@ jobs:
       run: cmake --build build --config Release
 
     - name: Run Qt application
-      run: .\qt-hello-world.exe
+      run: D:\a\qt-hello-world\qt-hello-world\build\Release\QtHelloWorld.exe
