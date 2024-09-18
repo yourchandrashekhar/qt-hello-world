@@ -29,3 +29,6 @@ jobs:
 
     - name: Build
       run: cmake --build build --config Release
+
+    - name: Run Qt application
+      run: .\qt-hello-world.exe
