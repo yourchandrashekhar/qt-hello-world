@@ -30,11 +30,15 @@ jobs:
     - name: Build
       run: cmake --build build --config Release
 
+    - name: Deploy Qt dependencies
+      run: |
+        "D:/a/qt-hello-world/Qt/5.15.2/msvc2019_64/bin/windeployqt.exe" --release --dir build/Release build/Release/QtHelloWorld.exe
+
     - name: Upload artifact
       uses: actions/upload-artifact@v4
       with:
         name: build-artifact
-        path: build/Release/QtHelloWorld.exe
+        path: build/Release/
 
     - name: Set output
       run: echo "build_artifact=build/Release/QtHelloWorld.exe" >> $GITHUB_OUTPUT
