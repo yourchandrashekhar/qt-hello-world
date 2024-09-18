@@ -32,7 +32,7 @@ jobs:
 
     - name: Deploy Qt dependencies
       run: |
-        "D:/a/qt-hello-world/Qt/5.15.2/msvc2019_64/bin/windeployqt.exe" --release --dir build/Release build/Release/QtHelloWorld.exe
+        "D:/a/qt-hello-world/Qt/5.15.2/msvc2019_64/bin/windeployqt.exe" --dir build/Release build/Release/QtHelloWorld.exe
 
     - name: Upload artifact
       uses: actions/upload-artifact@v4
