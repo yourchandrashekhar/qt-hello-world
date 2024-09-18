@@ -1,31 +1,14 @@
-name: CMake Build
+cmake_minimum_required(VERSION 3.14)
 
-on: [push, pull_request]
+# Set the project name
+project(QtHelloWorld VERSION 1.0)
 
-jobs:
-  build:
-    runs-on: windows-latest
+# Find the Qt libraries
+set(CMAKE_PREFIX_PATH "C:/Qt/5.15.2/msvc2019_64")
+find_package(Qt5 COMPONENTS Widgets REQUIRED)
 
-    steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+# Add the executable
+add_executable(QtHelloWorld main.cpp)
 
-    - name: Set up MSBuild
-      uses: microsoft/setup-msbuild@v1.0.2
-
-    - name: Set up Qt
-      uses: jurplel/install-qt-action@v2
-      with:
-        version: '5.15.2'
-        host: 'windows'
-        target: 'desktop'
-        arch: 'win64_msvc2019_64'
-
-    - name: Print Environment Variables
-      run: echo $PATH
-      
-    - name: Configure CMake
-      run: cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_PREFIX_PATH=C:\Qt\5.15.2\msvc2019_64
-
-    - name: Build
-      run: cmake --build build --config Release
+# Link the Qt libraries
+target_link_libraries(QtHelloWorld Qt5::Widgets)
