@@ -28,7 +28,9 @@ jobs:
         dir
         cd D:\a\qt-hello-world
         dir
-        #C:\Qt\5.15.2\mingw81_64\bin\qmake -project
+        cd D:\a\qt-hello-world\qt-hello-world
+        dir
+        C:\Qt\5.15.2\mingw81_64\bin\qmake -project
         #C:\Qt\5.15.2\mingw81_64\bin\qmake
         #C:\Qt\5.15.2\mingw81_64\bin\nmake
 
