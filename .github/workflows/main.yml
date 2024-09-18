@@ -15,15 +15,18 @@ jobs:
         choco install qt5-default
         dir C:\Qt
         dir "C:\Qt\5.15.2\"
+        dir "C:\Qt\5.15.2\mingw81_64"
+        dir "C:" /s /b | findstr /i "qmake.exe"
+        dir "C:" /s /b | findstr /i "nmake.exe"
 
     - name: Add Qt to PATH
-      run: echo "C:\Qt\5.15.2\msvc2019_64\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      run: echo "C:\Qt\5.15.2\mingw81_64\bin" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 
     - name: Build Qt project
       run: |
-        C:\Qt\5.15.2\msvc2019_64\bin\qmake -project
-        C:\Qt\5.15.2\msvc2019_64\bin\qmake
-        C:\Qt\5.15.2\msvc2019_64\bin\nmake
+        C:\Qt\5.15.2\mingw81_64\bin\qmake -project
+        C:\Qt\5.15.2\mingw81_64\bin\qmake
+        C:\Qt\5.15.2\mingw81_64\bin\nmake
 
     - name: Run Qt application
       run: .\qt-hello-world.exe
