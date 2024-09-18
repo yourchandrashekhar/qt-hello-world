@@ -23,7 +23,7 @@ jobs:
         run: |
           choco install vcpkg
           vcpkg integrate install
-          vcpkg install <your-required-libraries>
+          vcpkg install qt3d:x64-windows
 
       - name: Set environment variables
         run: |
