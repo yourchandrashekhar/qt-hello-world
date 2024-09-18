@@ -22,11 +22,15 @@ jobs:
 
     - name: Build Qt project
       run: |
-        cd D:\a\qt-hello-world
         D:
-        C:\Qt\5.15.2\mingw81_64\bin\qmake -project
-        C:\Qt\5.15.2\mingw81_64\bin\qmake
-        C:\Qt\5.15.2\mingw81_64\bin\nmake
+        dir
+        cd D:\a
+        dir
+        cd D:\a\qt-hello-world
+        dir
+        #C:\Qt\5.15.2\mingw81_64\bin\qmake -project
+        #C:\Qt\5.15.2\mingw81_64\bin\qmake
+        #C:\Qt\5.15.2\mingw81_64\bin\nmake
 
-    - name: Run Qt application
-      run: .\qt-hello-world.exe
+    #- name: Run Qt application
+      #run: .\qt-hello-world.exe
