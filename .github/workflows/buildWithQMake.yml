@@ -1,4 +1,4 @@
-name: Build with qmake
+name: Build qt-hello-world with QMake
 
 on:
   workflow_dispatch:
