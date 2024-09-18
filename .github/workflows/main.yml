@@ -1,6 +1,6 @@
 name: CMake Build
 
-on: [push, pull_request]
+on: [workflow_dispatch]
 
 jobs:
   build:
@@ -10,6 +10,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v1.0.2
+
     - name: Set up Qt
       uses: jurplel/install-qt-action@v2
       with:
@@ -18,6 +21,9 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2019_64'
 
+    - name: Print Environment Variables
+      run: echo $PATH
+      
     - name: Configure CMake
       run: cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_PREFIX_PATH=C:\Qt\5.15.2\msvc2019_64
 
