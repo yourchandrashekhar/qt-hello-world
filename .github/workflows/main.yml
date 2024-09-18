@@ -1,0 +1,24 @@
+name: Qt CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Qt
+      run: |
+        choco install qt5-default
+
+    - name: Build Qt project
+      run: |
+        qmake -project
+        qmake
+        nmake
+
+    - name: Run Qt application
+      run: .\qt-hello-world.exe
