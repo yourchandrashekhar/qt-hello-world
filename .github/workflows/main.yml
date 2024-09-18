@@ -1,6 +1,9 @@
 name: CMake Build
 
-on: [workflow_dispatch]
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -21,11 +24,8 @@ jobs:
         target: 'desktop'
         arch: 'win64_msvc2019_64'
 
-    - name: Print Environment Variables
-      run: echo $PATH
-      
     - name: Configure CMake
-      run: cmake -S . -B build -G "Visual Studio 16 2019" -A x64 -DCMAKE_PREFIX_PATH=C:\Qt\5.15.2\msvc2019_64
+      run: cmake -S . -B build -G "Visual Studio 17 2022" -A x64 -DCMAKE_PREFIX_PATH=D:/a/qt-hello-world/Qt/5.15.2/msvc2019_64
 
     - name: Build
       run: cmake --build build --config Release
