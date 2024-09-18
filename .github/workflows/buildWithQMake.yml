@@ -1,0 +1,54 @@
+name: Build with qmake
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Qt
+        uses: jurplel/install-qt-action@v4
+        with:
+          version: '5.15.2'
+          host: 'windows'
+          target: 'desktop'
+          arch: 'win64_msvc2019_64'
+
+      - name: Install dependencies
+        run: |
+          choco install vcpkg
+          vcpkg integrate install
+          vcpkg install <your-required-libraries>
+
+      - name: Set environment variables
+        run: |
+          echo "QT_DIR=D:\a\qt-hello-world\Qt\5.15.2\msvc2019_64" >> $GITHUB_ENV
+          echo "PATH=$QT_DIR\bin;$PATH" >> $GITHUB_ENV
+
+      - name: Configure with qmake
+        run: qmake -project
+
+      - name: Build with qmake
+        run: |
+          qmake
+          nmake
+
+      - name: Deploy Qt dependencies
+        shell: cmd
+        run: |
+          D:\a\qt-hello-world\Qt\5.15.2\msvc2019_64\bin\windeployqt.exe --release --dir build\Release build\Release\QtHelloWorld.exe
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifact
+          path: build/Release/
+
+      - name: Set output
+        run: echo "build_artifact=build/Release/QtHelloWorld.exe" >> $GITHUB_OUTPUT
+      
