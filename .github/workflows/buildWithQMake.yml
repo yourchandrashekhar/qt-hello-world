@@ -14,6 +14,12 @@ jobs:
       - name: Set up MSBuild
         uses: microsoft/setup-msbuild@v2
 
+      - name: Set environment variables
+        run: |
+          dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
+          dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" /s | findstr "cl.exe"
+          dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" /s | findstr "nmake.exe"
+
       - name: Set up Qt
         uses: jurplel/install-qt-action@v4
         with:
