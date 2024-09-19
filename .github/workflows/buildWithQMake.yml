@@ -19,7 +19,7 @@ jobs:
         shell: cmd
         run: |
           echo "PATH=C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Tools\MSVC\14.41.34120\bin\Hostx64\x64;$PATH" >> $GITHUB_ENV
-          echo $PATH
+          echo echo ${{ env.PATH }}
 
       - name: Set up Qt
         uses: jurplel/install-qt-action@v4
@@ -44,12 +44,12 @@ jobs:
       - name: Configure with qmake
         shell: cmd
         run: |
-          echo $PATH
+          echo ${{ env.PATH }}
           qmake -project
 
       - name: Build with qmake
         run: |
-          echo $PATH
+          echo ${{ env.PATH }}
           qmake
           nmake
 
