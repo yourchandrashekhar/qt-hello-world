@@ -44,10 +44,13 @@ jobs:
           dir "D:\a\qt-hello-world\Qt\5.15.2" /s /b | findstr /r /c:"\\qmake.exe$"
 
       - name: Configure with qmake
-        run: qmake -project
+        run: |
+          echo $PATH
+          qmake -project
 
       - name: Build with qmake
         run: |
+          echo $PATH
           qmake
           nmake
 
