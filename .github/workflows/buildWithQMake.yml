@@ -36,6 +36,7 @@ jobs:
       #    vcpkg install qt3d:x64-windows
 
       - name: Set environment variables
+        shell: cmd
         run: |
           echo "QT_DIR=D:\a\qt-hello-world\Qt\5.15.2\msvc2019_64" >> $GITHUB_ENV
           echo "PATH=$QT_DIR\bin;$PATH" >> $GITHUB_ENV
