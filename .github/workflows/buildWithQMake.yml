@@ -14,12 +14,12 @@ jobs:
       - name: Set up MSBuild
         uses: microsoft/setup-msbuild@v2
 
-      - name: Check cl.exe and nmake.exe paths in VS install path
-        shell: cmd
-        run: |
-          dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
-          dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" /s /b | findstr /r /c:"\\cl.exe$"
-          dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" /s /b | findstr /r /c:"\\nmake.exe$"
+      #- name: Check cl.exe and nmake.exe paths in VS install path
+      #  shell: cmd
+      #  run: |
+      #    dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise"
+      #    dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" /s /b | findstr /r /c:"\\cl.exe$"
+      #    dir "C:\Program Files\Microsoft Visual Studio\2022\Enterprise" /s /b | findstr /r /c:"\\nmake.exe$"
 
       - name: Set up Qt
         uses: jurplel/install-qt-action@v4
