@@ -11,6 +11,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+    - name: Set up MSBuild
+      uses: microsoft/setup-msbuild@v2
+
       - name: Set up Qt
         uses: jurplel/install-qt-action@v4
         with:
@@ -19,11 +22,11 @@ jobs:
           target: 'desktop'
           arch: 'win64_msvc2019_64'
 
-      - name: Install dependencies
-        run: |
-          choco install vcpkg
-          vcpkg integrate install
-          vcpkg install qt3d:x64-windows
+      #- name: Install dependencies
+      #  run: |
+      #    choco install vcpkg
+      #    vcpkg integrate install
+      #    vcpkg install qt3d:x64-windows
 
       - name: Set environment variables
         run: |
