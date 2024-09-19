@@ -42,6 +42,7 @@ jobs:
           echo "PATH=$QT_DIR\bin;$PATH" >> $GITHUB_ENV
 
       - name: Configure with qmake
+        shell: cmd
         run: |
           echo $PATH
           qmake -project
